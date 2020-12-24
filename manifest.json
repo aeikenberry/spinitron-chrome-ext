@@ -8,13 +8,15 @@
   "permissions": [
     "contentSettings",
     "cookies",
-    "https://spinitron.com/*"
+    "https://spinitron.com/*",
+    "https://daily.bandcamp.com/*"
   ],
   "content_scripts": [
     {
       "matches": [
         "https://www.spinitron.com/*",
-        "https://spinitron.com/*"
+        "https://spinitron.com/*",
+        "https://daily.bandcamp.com/*"
       ],
       "css": [
         "src/inject/inject.css"
@@ -29,7 +31,21 @@
         "js/jquery/jquery.min.js",
         "js/jquery/jquery.cookie.js",
         "js/spotify/spotify-web-api.js",
-        "src/inject/inject.js"
+        "src/inject/common.js",
+        "src/inject/spinitron.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://daily.bandcamp.com/*",
+        "https://bandcamp.com/*"
+      ],
+      "js": [
+        "js/jquery/jquery.min.js",
+        "js/jquery/jquery.cookie.js",
+        "js/spotify/spotify-web-api.js",
+        "src/inject/common.js",
+        "src/inject/bandcamp.js"
       ]
     }
   ]

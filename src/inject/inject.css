@@ -12,6 +12,7 @@
     border-radius: 10px;
     padding: 10px;
     color: white;
+    z-index: 2222222;
  }
 
 .s-playlist-btn {
@@ -21,4 +22,5 @@
   border-radius: 10px;
   padding: 10px;
   color: white;
+  z-index: 2222222;
 }
