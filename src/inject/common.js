@@ -74,8 +74,6 @@ $(document).ready(function() {
     handleQueryParams(setSession);
     
 	if (!getSession()) {
-        debugger;
-        alert('creating login button');
 		return createLoginButton();
 	}
 
