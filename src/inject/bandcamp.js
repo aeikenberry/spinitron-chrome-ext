@@ -1,4 +1,4 @@
-var REDIRECT_URI = 'https://bandcamp.com';
+var REDIRECT_URI = 'https://daily.bandcamp.com';
 var BUTTON_APPEND_SELECTOR = 'article p';
 
 function getDefaultPlaylistName() {
@@ -14,16 +14,4 @@ function getSearchTerms() {
         searches.push(artist + ' ' + album);
     });
     return searches;
-}
-
-function getSession() {
-	return $.cookie(COOKIE_NAME);
-}
-
-function setSession(session, expires) {
-	return $.cookie(COOKIE_NAME, session, {expires: expires, domain: '.bandcamp.com'});
-}
-
-function clearSession() {
-	return $.removeCookie(COOKIE_NAME, { path: '/', domain: '.bandcamp.com' });
 }

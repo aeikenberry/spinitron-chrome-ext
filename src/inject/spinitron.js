@@ -19,18 +19,6 @@ function getSearchTerms() {
     return searches;
 }
 
-function getSession() {
-	return $.cookie(COOKIE_NAME);
-}
-
-function setSession(session, expires) {
-	return $.cookie(COOKIE_NAME, session, {expires: expires});
-}
-
-function clearSession() {
-	return $.removeCookie(COOKIE_NAME, { path: '/' });
-}
-
 function getSearchTerms() {
 	var terms = [];
 	$('.artist').each(function(i, node) {

@@ -3,6 +3,7 @@ var CLIENT_ID = 'c7df358234224cbd9d153e2c7ee3f837';
 var COOKIE_NAME = 'spinitron-spotify-ext';
 var TRACKS = [];
 var MY_USER_ID = null;
+var ALL_TRACKS_COUNT = null;
 
 function handleQueryParams(setSession) {
 	var urlParams = new URLSearchParams(window.location.hash.substring(1, window.location.hash.length));
@@ -42,7 +43,8 @@ function handleMakePlaylistClick() {
 				TRACKS.map(function(t) { return t.uri; })
 			).then(function() {
 				$('.s-playlist-btn').remove();
-				alert("Playlist '" + getDefaultPlaylistName() + "' created successfully!")
+				alert("Playlist '" + getDefaultPlaylistName() + "' created successfully! " +
+					TRACKS.length + " of " + ALL_TRACKS_COUNT + " were found on Spotify.");
 			})
 			.catch(function(err) {
 				alert('Sorry, could not add songs to the new playlist');
@@ -67,6 +69,17 @@ function getLoginURL() {
 		'&state=' + encodeURIComponent(document.location)
 }
 
+function getSession() {
+	return $.cookie(COOKIE_NAME);
+}
+
+function setSession(session, expires) {
+	return $.cookie(COOKIE_NAME, session, {expires: expires });
+}
+
+function clearSession() {
+	return $.removeCookie(COOKIE_NAME, { path: '/' });
+}
 
 // Get the tracks
 $(document).ready(function() {
@@ -85,6 +98,7 @@ $(document).ready(function() {
 			MY_USER_ID = response.id;
             
             var searches = getSearchTerms();
+			ALL_TRACKS_COUNT = searches.length;
             var searchPromises = searches.map(search => {
                 return Spotify.searchTracks(search);
             });
