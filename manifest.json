@@ -1,8 +1,8 @@
 {
   "name": "Spotify-Playlist-Builder",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "manifest_version": 2,
-  "description": "Create Spotify playlists from Spinitron, Bandcamp Daily and Chirp Radio, more coming soon!.",
+  "description": "Create Spotify playlists from Spinitron, Bandcamp Daily and Chirp Radio, Pitchfork,  more coming soon!.",
   "homepage_url": "https://github.com/aeikenberry/spinitron-chrome-ext",
   "default_locale": "en",
   "permissions": [
@@ -10,7 +10,8 @@
     "cookies",
     "https://spinitron.com/*",
     "https://chirpradio.org/charts/*",
-    "https://daily.bandcamp.com/*"
+    "https://daily.bandcamp.com/*",
+    "https://pitchfork.com/features/lists-and-guides/*"
   ],
   "content_scripts": [
     {
@@ -32,7 +33,8 @@
       "matches": [
         "https://www.spinitron.com/*",
         "https://spinitron.com/*",
-        "https://daily.bandcamp.com/*"
+        "https://daily.bandcamp.com/*",
+        "https://pitchfork.com/features/lists-and-guides/*"
       ],
       "css": [
         "src/inject/inject.css"
@@ -61,6 +63,21 @@
         "js/spotify/spotify-web-api.js",
         "src/inject/common.js",
         "src/inject/bandcamp.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://pitchfork.com/features/lists-and-guides/*"
+      ],
+      "css": [
+        "src/inject/pitchfork.css"
+      ],
+      "js": [
+        "js/jquery/jquery.min.js",
+        "js/jquery/jquery.cookie.js",
+        "js/spotify/spotify-web-api.js",
+        "src/inject/common.js",
+        "src/inject/pitchforkLists.js"
       ]
     }
   ]
