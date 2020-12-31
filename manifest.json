@@ -1,17 +1,17 @@
 {
   "name": "Spotify-Playlist-Builder",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "manifest_version": 2,
   "description": "Create Spotify playlists from Spinitron, Bandcamp Daily and Chirp Radio, Pitchfork,  more coming soon!.",
   "homepage_url": "https://github.com/aeikenberry/spinitron-chrome-ext",
   "default_locale": "en",
   "permissions": [
-    "contentSettings",
     "cookies",
     "https://spinitron.com/*",
-    "https://chirpradio.org/charts/*",
+    "https://chirpradio.org/charts*",
     "https://daily.bandcamp.com/*",
-    "https://pitchfork.com/features/lists-and-guides/*"
+    "https://pitchfork.com/features/lists-and-guides/*",
+    "https://api.spotify.com/v1/*"
   ],
   "content_scripts": [
     {
@@ -80,5 +80,10 @@
         "src/inject/pitchforkLists.js"
       ]
     }
-  ]
+  ],
+  "applications": {
+    "gecko": {
+      "id": "spotify_playlist_builder@0.2.5"
+    }
+  }
 }

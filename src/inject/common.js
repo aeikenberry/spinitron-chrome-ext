@@ -119,6 +119,8 @@ $(document).ready(function() {
 			if (err.status == 401) {
 				clearSession();
 				createLoginButton();
+			} else {
+				console.log(err);
 			}
 		});
 });
