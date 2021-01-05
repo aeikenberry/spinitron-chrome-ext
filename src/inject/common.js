@@ -115,12 +115,8 @@ $(document).ready(function() {
 				.then(function() { createMakePlaylistButton(); })
 				.catch(console.log);
 		})
-		.catch(function(err) {
-			if (err.status == 401) {
-				clearSession();
-				createLoginButton();
-			} else {
-				console.log(err);
-			}
+		.catch(function() {
+			clearSession();
+			createLoginButton()
 		});
 });
