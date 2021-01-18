@@ -1,6 +1,6 @@
 {
   "name": "Spotify-Playlist-Builder",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "manifest_version": 2,
   "description": "Create Spotify playlists from Spinitron, Bandcamp Daily and Chirp Radio, Pitchfork,  more coming soon!.",
   "homepage_url": "https://github.com/aeikenberry/spinitron-chrome-ext",

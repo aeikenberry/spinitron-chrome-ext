@@ -88,10 +88,8 @@ $(document).ready(function() {
 			MY_USER_ID = response.id;
             addCreatePlaylistButtons();
 		})
-		.catch(function(err) {
-			if (err.status == 401) {
-				clearSession();
-				createLoginButton();
-			}
+		.catch(function() {
+      clearSession();
+      createLoginButton();
 		});
 });
